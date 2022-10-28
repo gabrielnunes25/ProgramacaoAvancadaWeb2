@@ -1,7 +1,61 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+import ItemPedido from '../components/ItemPedido/index.js';
+
+import PedidoService from '../services/pedido.js';
+
 export default function Home() {
+
+  console.log(PedidoService.pedidos);
+
+  const pedidos = [
+    {
+        cliente:'Gabriel',
+        itensPedido:  [
+            {
+                quantidade: 6, produto: 'Lapis', preco: 1.5
+            },
+            {
+                quantidade: 2, produto: 'Caneta', preco: 2.0
+            },
+        ]
+    },
+    {
+        cliente:'Luiza',
+        itensPedido:  [
+            {
+                quantidade: 6, produto: 'Lapis', preco: 1.5
+            },
+            {
+                quantidade: 2, produto: 'Caneta', preco: 2.0
+            },
+        ]
+    },
+    {
+        cliente:'Claudia',
+        itensPedido:  [
+            {
+                quantidade: 6, produto: 'Lapis', preco: 1.5
+            },
+            {
+                quantidade: 2, produto: 'Caneta', preco: 2.0
+            },
+        ]
+    },
+    {
+        cliente:'Maria',
+        itensPedido:  [
+            {
+                quantidade: 6, produto: 'Lapis', preco: 1.5
+            },
+            {
+                quantidade: 2, produto: 'Caneta', preco: 2.0
+            },
+        ]
+    },
+];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,46 +69,9 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
+          {/* <ItemPedido pedido={pedido}></ItemPedido> */}
 
-          <div className={styles.card}>
-            <h2>Nome do cliente</h2>
-
-            <table>
-              <tr>
-                <th>Quantidade</th>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Total</th>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Caneta</td>
-                <td>R$ 2,00</td>
-                <td>R$ 6,00</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Lapis</td>
-                <td>R$ 1,00</td>
-                <td>R$ 2,00</td>
-              </tr>
-              <tr>
-                
-                <td colSpan={3}>Total:</td>
-                <td>R$ 8,00</td>
-              </tr>
-              
-            </table>
-          </div>
-
-          <div className={styles.card}>
-            <h2>Nome do cliente 2</h2>
-
-            <table>
-
-            </table>
-          </div>
-
+          {pedidos.map((p)=> <ItemPedido pedido={p}></ItemPedido>)}
         </div>
       </main>
 

@@ -9,15 +9,18 @@ import PedidoService from '../services/pedido.js';
 
 export default function Home() {
 
-  const [pedidos, setPedidos] = useState([...PedidoService.pegarPedidos()]);
+  const ps = new PedidoService()
+
+  const [pedidos, setPedidos] = useState([...ps.pegarPedidos()]); 
 
   const btnLixo = (pedido) => {
-    if (PedidoService.deletarPedido(pedido)) {   
+    if (ps.deletarPedido(pedido)) {   
       let temp = pedidos.filter(p=>p !== pedido);
       setPedidos(temp);
     }
   }
 
+  console.log(ps.pegarPedidos())
   return (
     <div className={styles.container}>
       <Head>

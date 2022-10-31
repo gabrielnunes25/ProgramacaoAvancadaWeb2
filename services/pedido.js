@@ -1,8 +1,8 @@
 export default class PedidoService {
 
-    static pedidos = [
+    pedidos = [
         {
-            id:1,
+            id: 1,
             cliente: 'Gabriel',
             itensPedido: [
                 {
@@ -14,7 +14,7 @@ export default class PedidoService {
             ]
         },
         {
-            id:2,
+            id: 2,
             cliente: 'Luiza',
             itensPedido: [
                 {
@@ -26,7 +26,7 @@ export default class PedidoService {
             ]
         },
         {
-            id:3,
+            id: 3,
             cliente: 'Claudio',
             itensPedido: [
                 {
@@ -38,7 +38,7 @@ export default class PedidoService {
             ]
         },
         {
-            id:4,
+            id: 4,
             cliente: 'Maria',
             itensPedido: [
                 {
@@ -49,19 +49,46 @@ export default class PedidoService {
                 },
             ]
         },
+        {
+            id: 5,
+            cliente: 'Daniel',
+            itensPedido: [
+                {
+                    quantidade: 2, produto: 'Borracha', preco: 3
+                },
+                {
+                    quantidade: 6, produto: 'Caneta', preco: 2.0
+                },
+            ]
+        },
+        {
+            id: 6,
+            cliente: 'João',
+            itensPedido: [
+                {
+                    quantidade: 3, produto: 'Lapis', preco: 1.5
+                },
+                {
+                    quantidade: 2, produto: 'Caneta', preco: 2.0
+                },
+            ]
+        },
     ];
 
-    static pegarPedidos() {
+    pegarPedidos() {
         return this.pedidos;
     }
 
-    static deletarPedido(pedido) {         
+    deletarPedido(pedido) {
         this.pedidos.splice(this.pedidos.indexOf(pedido), 1);
         return true;
     }
 
-    static alterarPedido() { }
+    alterarPedido() { }
 
 
-    static adicionarPedido() { }
+    adicionarPedido(pedido) {
+        this.pedidos.push(pedido);
+        console.log(this.pedidos);
+    }
 }

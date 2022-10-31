@@ -12,22 +12,9 @@
   align-items: center;
 }
 
-.btnAdicionar a{
-  border: #eaeaea 2px solid;
-
-  position:fixed;
-  bottom: 3rem;
-  border-radius: 3rem;
-  right: 3rem;
-  font-size: 3em;
-  height: 60px;
-  width: 60px;
-  padding-bottom: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.btnVoltar{
+  cursor: pointer;
 }
-
 
 .footer {
   display: flex;

@@ -1,5 +1,7 @@
 import Head from 'next/head'
+import Link from "next/link";
 import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
 
 import ItemPedido from '../components/ItemPedido/index.js';
 
@@ -7,54 +9,14 @@ import PedidoService from '../services/pedido.js';
 
 export default function Home() {
 
-  console.log(PedidoService.pedidos);
+  const [pedidos, setPedidos] = useState([...PedidoService.pegarPedidos()]);
 
-  const pedidos = [
-    {
-        cliente:'Gabriel',
-        itensPedido:  [
-            {
-                quantidade: 6, produto: 'Lapis', preco: 1.5
-            },
-            {
-                quantidade: 2, produto: 'Caneta', preco: 2.0
-            },
-        ]
-    },
-    {
-        cliente:'Luiza',
-        itensPedido:  [
-            {
-                quantidade: 6, produto: 'Lapis', preco: 1.5
-            },
-            {
-                quantidade: 2, produto: 'Caneta', preco: 2.0
-            },
-        ]
-    },
-    {
-        cliente:'Claudia',
-        itensPedido:  [
-            {
-                quantidade: 6, produto: 'Lapis', preco: 1.5
-            },
-            {
-                quantidade: 2, produto: 'Caneta', preco: 2.0
-            },
-        ]
-    },
-    {
-        cliente:'Maria',
-        itensPedido:  [
-            {
-                quantidade: 6, produto: 'Lapis', preco: 1.5
-            },
-            {
-                quantidade: 2, produto: 'Caneta', preco: 2.0
-            },
-        ]
-    },
-];
+  const btnLixo = (pedido) => {
+    if (PedidoService.deletarPedido(pedido)) {   
+      let temp = pedidos.filter(p=>p !== pedido);
+      setPedidos(temp);
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -69,20 +31,18 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {/* <ItemPedido pedido={pedido}></ItemPedido> */}
-
-          {pedidos.map((p)=> <ItemPedido pedido={p}></ItemPedido>)}
-        </div>
+          {pedidos.map((p, index) => <ItemPedido pedido={p} key={index} action={btnLixo}></ItemPedido>)}
+        </div> 
       </main>
 
+      <div className={styles.btnAdicionar}>
+        <Link href='/NovoPedido'>+</Link>
+      </div>
+
       <footer className={styles.footer}>
-        <a
-          href=""
-        // target="_blank"
-        // rel="noopener noreferrer"
-        >
+        <p>
           Gabriel Nunes Silva
-        </a>
+        </p>
       </footer>
     </div>
   )

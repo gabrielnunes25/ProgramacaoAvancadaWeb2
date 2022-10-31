@@ -1,9 +1,10 @@
 export default class PedidoService {
 
-    pedidos = [
+    static pedidos = [
         {
-            cliente:'Gabriel',
-            itensPedido:  [
+            id:1,
+            cliente: 'Gabriel',
+            itensPedido: [
                 {
                     quantidade: 6, produto: 'Lapis', preco: 1.5
                 },
@@ -13,36 +14,54 @@ export default class PedidoService {
             ]
         },
         {
-            cliente:'Luiza',
-            itensPedido:  [
+            id:2,
+            cliente: 'Luiza',
+            itensPedido: [
                 {
-                    quantidade: 6, produto: 'Lapis', preco: 1.5
+                    quantidade: 1, produto: 'Lapis', preco: 1.5
                 },
                 {
-                    quantidade: 2, produto: 'Caneta', preco: 2.0
+                    quantidade: 4, produto: 'Caneta', preco: 2.0
                 },
             ]
         },
         {
-            cliente:'Claudia',
-            itensPedido:  [
+            id:3,
+            cliente: 'Claudio',
+            itensPedido: [
                 {
-                    quantidade: 6, produto: 'Lapis', preco: 1.5
+                    quantidade: 7, produto: 'Lapis', preco: 1.5
                 },
                 {
-                    quantidade: 2, produto: 'Caneta', preco: 2.0
+                    quantidade: 1, produto: 'Caneta', preco: 2.0
+                },
+            ]
+        },
+        {
+            id:4,
+            cliente: 'Maria',
+            itensPedido: [
+                {
+                    quantidade: 3, produto: 'Lapis', preco: 1.5
+                },
+                {
+                    quantidade: 9, produto: 'Caneta', preco: 2.0
                 },
             ]
         },
     ];
 
-    pegarPedidos() {
-        return this.pedido
+    static pegarPedidos() {
+        return this.pedidos;
     }
 
-    deletarPedido(){}
+    static deletarPedido(pedido) {         
+        this.pedidos.splice(this.pedidos.indexOf(pedido), 1);
+        return true;
+    }
 
-    alterarPedido(){}
+    static alterarPedido() { }
 
-    adicionarPedido(){}
+
+    static adicionarPedido() { }
 }

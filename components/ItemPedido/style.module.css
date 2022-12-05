@@ -64,10 +64,6 @@
   /* border: red 1px solid; */
 }
 
-.btnLixo:hover {
-  border: blue 2px solid;
-}
-
 @media (prefers-color-scheme: dark) {
 
   .card,

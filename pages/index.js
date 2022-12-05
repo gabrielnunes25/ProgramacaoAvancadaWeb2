@@ -9,7 +9,7 @@ import PedidoService from '../services/pedido.js';
 
 export default function Home() {
 
-  const ps = new PedidoService()
+  const ps = PedidoService.intanciarPedidoService()
 
   const [pedidos, setPedidos] = useState([...ps.pegarPedidos()]); 
 
@@ -20,7 +20,6 @@ export default function Home() {
     }
   }
 
-  console.log(ps.pegarPedidos())
   return (
     <div className={styles.container}>
       <Head>

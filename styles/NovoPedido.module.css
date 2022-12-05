@@ -27,6 +27,20 @@
   padding-top: 20px;
 }
 
+.formProduto{
+  border: red 2px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content:baseline;
+}
+
+.formProduto button {
+  font-size: 2rem;
+  /* border-radius: 50%; */
+  width: 37px;
+  height: 37px;
+}
+
 
 .footer {
   display: flex;
@@ -73,7 +87,7 @@
 .btnCadastrar:hover{
   border-color: green;
   color: green;
-  transition: 1s;
+  transition: 0.2s;
 }
 
 

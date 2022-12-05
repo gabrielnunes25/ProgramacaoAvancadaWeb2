@@ -75,6 +75,16 @@ export default class PedidoService {
         },
     ];
 
+    _instace;
+
+    static intanciarPedidoService(){
+        if (!this._instace) {
+            this._instace = new PedidoService();
+        }
+        return this._instace;
+    
+    }
+
     pegarPedidos() {
         return this.pedidos;
     }
@@ -89,6 +99,5 @@ export default class PedidoService {
 
     adicionarPedido(pedido) {
         this.pedidos.push(pedido);
-        console.log(this.pedidos);
     }
 }

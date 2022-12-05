@@ -7,18 +7,17 @@ import PedidoService from '../services/pedido.js';
 import { FaStepBackward } from 'react-icons/fa';
 
 export default function NovoPedido() {
-    const ps = new PedidoService()
+    const ps = PedidoService.intanciarPedidoService()
 
-    const [cliente, setCliente] =  useState('Kleber');
+    const [cliente, setCliente] = useState('Kleber');
 
-    const  [quantidade, setQuantidade] = useState(2);
+    const [quantidade, setQuantidade] = useState(2);
 
-    const  [produto, setProduto] = useState('Borracha');
-    
-    const  [preco, setPreco] = useState(2.5);
+    const [produto, setProduto] = useState('Borracha');
 
-    function handleSalvarPedido(){
-        console.log('Salvou')
+    const [preco, setPreco] = useState(2.5);
+
+    function handleSalvarPedido() {
 
         let pedidoAux = {
             cliente: cliente,
@@ -50,23 +49,28 @@ export default function NovoPedido() {
                 <form className={styles.form}>
                     <div>
                         <label htmlFor="cliente">Cliente:  </label>
-                        <input type="text" id="cliente" value={cliente} onChange={e => setCliente(e.target.value)}/>
+                        <input type="text" id="cliente" value={cliente} onChange={e => setCliente(e.target.value)} />
                     </div>
 
                     <div className={styles.formProduto}>
-                        <label htmlFor="quantidade">Quantidade:  </label>
-                        <input type="number" id="quantidade" value={quantidade} onChange={e => setQuantidade(e.target.value)}/>
-                    </div>
+                        <div>
+                            <label htmlFor="quantidade">Quantidade:  </label>
+                            <input type="number" id="quantidade" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
+                        </div>
 
-                    <div>
+                        <div>
 
-                        <label htmlFor="produto">Produto:  </label>
-                        <input type="text" id="produto" value={produto} onChange={e => setProduto(e.target.value)}/>
-                    </div>
-                    <div>
+                            <label htmlFor="produto">Produto:  </label>
+                            <input type="text" id="produto" value={produto} onChange={e => setProduto(e.target.value)} />
+                        </div>
+                        <div>
 
-                        <label htmlFor="preco">Preço:  </label>
-                        <input type="number" id="preco" value={preco} onChange={e => setPreco(e.target.value)}/>
+                            <label htmlFor="preco">Preço:  </label>
+                            <input type="number" id="preco" value={preco} onChange={e => setPreco(e.target.value)} />
+                        </div>
+                        <div >
+                            <button>+</button>
+                        </div>
                     </div>
 
 
